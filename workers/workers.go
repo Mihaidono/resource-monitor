@@ -1,6 +1,7 @@
 package workers
 
 import (
+	"log"
 	"time"
 
 	"github.com/Mihaidono/resource-monitor/metrics"
@@ -11,7 +12,7 @@ import (
 func CpuWorker(writeAPI api.WriteAPI, interval time.Duration) {
 	ticker := time.NewTicker(interval)
 	defer ticker.Stop()
-
+	log.Printf("Started CPU Resource Monitoring")
 	for range ticker.C {
 		point := metrics.CollectCPUMetricsPoint()
 		writeAPI.WritePoint(point)
@@ -23,6 +24,7 @@ func GpuWorker(writeAPI api.WriteAPI, interval time.Duration) {
 	ticker := time.NewTicker(interval)
 	defer ticker.Stop()
 
+	log.Printf("Started GPU Resource Monitoring")
 	for range ticker.C {
 		points := metrics.CollectGPUMetricsPoints()
 		for _, point := range points {
