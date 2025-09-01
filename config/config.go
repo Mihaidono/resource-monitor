@@ -25,9 +25,9 @@ type IntervalConfig struct {
 func LoadInfluxConfig() InfluxConfig {
 	return InfluxConfig{
 		URL:    os.Getenv("INFLUXDB_URL"),
-		Token:  os.Getenv("INFLUX_TOKEN"),
-		Org:    os.Getenv("INFLUX_ORG"),
-		Bucket: os.Getenv("INFLUX_BUCKET"),
+		Token:  os.Getenv("INFLUXDB_TOKEN"),
+		Org:    os.Getenv("INFLUXDB_ORG"),
+		Bucket: os.Getenv("INFLUXDB_BUCKET"),
 	}
 }
 

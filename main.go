@@ -28,7 +28,7 @@ func main() {
 		log.Printf("Failed to initialize NVML: %v\nGPU monitoring will be disabled...", result)
 	} else {
 		defer nvml.Shutdown()
-		log.Println("NVML initialized.\nStarting GPU monitoring...")
+		log.Println("NVML initialized. Starting GPU monitoring...")
 		go workers.GpuWorker(writeAPI, intervalCfg.GPU)
 	}
 
